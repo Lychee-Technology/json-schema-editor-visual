@@ -7,7 +7,7 @@ import type { JsonSchema } from '../../types';
 export interface MockSelectProps {
   schema: JsonSchema;
   showEdit: () => void;
-  onChange: (value: string) => void;
+  onChange: (value: string | null) => void;
 }
 
 export function MockSelect({ schema, showEdit, onChange }: MockSelectProps) {

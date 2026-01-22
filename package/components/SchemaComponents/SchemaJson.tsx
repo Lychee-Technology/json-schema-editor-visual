@@ -66,7 +66,7 @@ const SchemaArray = memo(function SchemaArray({
   );
 
   const handleChangeMock = useCallback(
-    (value: string) => {
+    (value: string | null) => {
       const key = [...prefixArray, 'mock'];
       changeValue(key, value ? { mock: value } : undefined);
     },
@@ -270,7 +270,7 @@ const SchemaItem = memo(function SchemaItem({
   );
 
   const handleChangeMock = useCallback(
-    (mockValue: string) => {
+    (mockValue: string | null) => {
       const key = [...prefixArray, 'mock'];
       changeValue(key, mockValue ? { mock: mockValue } : undefined);
     },

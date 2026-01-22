@@ -9,7 +9,7 @@ export interface AutoCompleteOption {
 
 export interface AutoCompleteProps {
   value: string;
-  onChange: (value: string) => void;
+  onChange: (value: string | null) => void;
   options: AutoCompleteOption[];
   placeholder?: string;
   disabled?: boolean;
