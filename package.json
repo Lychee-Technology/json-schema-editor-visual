@@ -1,44 +1,45 @@
 {
   "name": "json-schema-editor-visual",
-  "version": "2.0.0",
-  "description": "jsonschema editor",
-  "main": "package/index.js",
-  "license": "MIC",
+  "version": "3.0.0",
+  "description": "A visual JSON Schema editor built with React, TypeScript, and Tailwind CSS",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
   "scripts": {
-    "start": "ykit s -p 8082",
-    "demo": "NODE_ENV=production ykit pack -m",
-    "build": "NODE_ENV=production webpack"
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:demo": "vite build --mode demo",
+    "preview": "pnpm run build:demo && vite preview --outDir demo-dist",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.2.1",
-    "antd": "^4",
-    "brace": "^0.10.0",
+    "@headlessui/react": "^2.2.0",
+    "@monaco-editor/react": "^4.6.0",
+    "clsx": "^2.1.1",
     "generate-schema": "^2.6.0",
-    "moox": "^1.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^5.0.6",
-    "redux": "^4.1.2",
-    "underscore": "^1.8.3"
+    "immer": "^10.1.1",
+    "lucide-react": "^0.469.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0",
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.1",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-import": "^1.7.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.0",
-    "cross-env": "^5.1.1",
-    "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "less": "^2.7.2",
-    "less-loader": "^4.1.0",
-    "style-loader": "^0.20.3",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^4.9.1",
-    "ykit-config-antd": "^2"
-  }
+    "@tailwindcss/forms": "^0.5.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.9"
 }

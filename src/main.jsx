@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import 'antd/dist/antd.css';
 
-import '../dist/main.css'
-const jeditor = require('../dist/main');
-//const jeditor = require('../package/index.js');
+import '../package/index.css';
+import schemaEditor from '../package/index.jsx';
+
 const mock = [
   { name: '字符串', mock: '@string' },
   { name: '自然数', mock: '@natural' },
@@ -20,7 +20,7 @@ const mock = [
   { name: '时间戳', mock: '@timestamp' }
 ];
 
-const JEditor1 = jeditor({mock: mock});
+const JEditor1 = schemaEditor({ mock });
 
 render(
   <div>

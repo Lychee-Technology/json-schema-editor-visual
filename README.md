@@ -21,6 +21,17 @@ render(
 )
 ```
 
+## Development
+
+Development now runs on Vite with pnpm:
+
+```bash
+pnpm install
+pnpm dev
+pnpm build
+pnpm preview
+```
+
 ## Option Object
 
 | name | desc | default |

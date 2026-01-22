@@ -1,0 +1,36 @@
+{
+  "name": "json-schema-editor-visual",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24",
+      "pnpmVersion": "10"
+    }
+  },
+  "postCreateCommand": "corepack enable && pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "GitHub.copilot",
+        "openai.chatgpt",
+        "saoudrizwan.claude-dev",
+        "vitest.explorer",
+        "EditorConfig.EditorConfig",
+        "vscodevim.vim",
+        "GitHub.copilot-chat",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+  "forwardPorts": [4173, 5173],
+  "portsAttributes": {
+    "4173": {
+      "label": "Vite preview"
+    },
+    "5173": {
+      "label": "Vite dev server"
+    }
+  },
+  "remoteUser": "vscode"
+}
