@@ -18,7 +18,7 @@ import { useTranslation } from './hooks';
 import { handleSchema } from './utils/schema';
 import { debounce, cn, JSONPATH_JOIN_CHAR } from './utils';
 import { SCHEMA_TYPES, DEFAULT_FORMATS, type JsonSchema, type SchemaEditorProps, type FormatOption, type MockOption } from './types';
-import GenerateSchema from 'generate-schema';
+import { generateSchema } from './utils/generateSchema';
 
 const typeOptions = SCHEMA_TYPES.map((type) => ({ value: type, label: type }));
 
@@ -99,7 +99,7 @@ function JsonSchemaEditor({ data: initialData, onChange, showEditor = false, isM
       if (!jsonData) {
         return;
       }
-      const generated = GenerateSchema(jsonData);
+      const generated = generateSchema(jsonData);
       changeEditorSchema(generated);
     } else {
       if (!jsonSchemaData) {

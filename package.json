@@ -17,7 +17,6 @@
     "@headlessui/react": "^2.2.0",
     "@monaco-editor/react": "^4.6.0",
     "clsx": "^2.1.1",
-    "generate-schema": "^2.6.0",
     "immer": "^10.1.1",
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",
