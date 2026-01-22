@@ -128,7 +128,7 @@ const SchemaArray = memo(function SchemaArray({
           </div>
         </div>
 
-        <div className="w-[12%]">
+        <div className="w-[15%]">
           <Select
             value={items.type}
             onChange={handleChangeType}
@@ -138,7 +138,7 @@ const SchemaArray = memo(function SchemaArray({
         </div>
 
         {isMock && (
-          <div className="w-[12%]">
+          <div className="w-[15%]">
             <MockSelect
               schema={items}
               showEdit={() => handleShowEdit('mock', items.type)}
@@ -363,7 +363,7 @@ const SchemaItem = memo(function SchemaItem({
           </div>
         </div>
 
-        <div className="w-[12%]">
+        <div className="w-[15%]">
           <Select
             value={value.type}
             onChange={handleChangeType}
@@ -373,7 +373,7 @@ const SchemaItem = memo(function SchemaItem({
         </div>
 
         {isMock && (
-          <div className="w-[12%]">
+          <div className="w-[15%]">
             <MockSelect
               schema={value}
               showEdit={() => handleShowEdit('mock', value.type)}

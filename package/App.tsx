@@ -361,7 +361,7 @@ function JsonSchemaEditor({ data: initialData, onChange, showEditor = false, isM
                 </div>
               </div>
 
-              <div className="w-[12%]">
+              <div className="w-[15%]">
                 <Select
                   value={schema.type || 'object'}
                   onChange={handleChangeType}
@@ -371,7 +371,7 @@ function JsonSchemaEditor({ data: initialData, onChange, showEditor = false, isM
               </div>
 
               {isMock && (
-                <div className="w-[12%]">
+                <div className="w-[15%]">
                   <MockSelect
                     schema={schema}
                     showEdit={() => showEdit([], 'mock', schema.mock, schema.type)}
