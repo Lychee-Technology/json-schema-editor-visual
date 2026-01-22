@@ -1,43 +1,49 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import path from 'path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig(({ command, mode }) => {
-  const isDemoBuild = command === 'serve' || mode === 'demo';
+  const isLibBuild = mode === 'lib';
 
-  const plugins = [react()];
+  const plugins: PluginOption[] = [react()];
+  const resolve = {
+    alias: {
+      '@': path.resolve(__dirname, './package'),
+    },
+  };
 
-  if (!isDemoBuild) {
-    plugins.push(dts({
-      include: ['package/**/*'],
-      outDir: 'dist',
-      rollupTypes: true,
-    }));
-  }
-
-  if (isDemoBuild) {
+  if (!isLibBuild) {
     return {
+      base: './',
       plugins,
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, './package'),
-        },
-      },
+      resolve,
       build: {
-        outDir: 'demo-dist',
+        outDir: 'dist',
         emptyOutDir: true,
       },
     };
   }
 
+  const dtsPlugin = dts({
+    include: ['package/**/*'],
+    outDir: 'dist',
+    rollupTypes: true,
+  });
+
+  if (Array.isArray(dtsPlugin)) {
+    plugins.push(...dtsPlugin);
+  } else {
+    plugins.push(dtsPlugin);
+  }
+
   return {
     plugins,
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './package'),
-      },
-    },
+    resolve,
     build: {
       lib: {
         entry: path.resolve(__dirname, 'package/index.tsx'),
